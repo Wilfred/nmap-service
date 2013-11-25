@@ -10,7 +10,7 @@ You will need Python 3.
     $ virtualenv ~/.envs/nmapservice -p python3
     $ . ~/.envs/nmapservice/bin/activate
     $ pip install -r requirements.pip
-    $ python server.py
+    $ DEBUG=y python server.py
 
 ## License
 

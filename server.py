@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 
 
@@ -10,4 +12,4 @@ def hello():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=os.environ.get('DEBUG') == 'y')
