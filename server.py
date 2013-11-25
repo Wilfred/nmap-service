@@ -1,7 +1,7 @@
 import os
 import json
 
-from flask import Flask, request
+from flask import Flask, request, abort
 import nmap
 
 
@@ -33,7 +33,14 @@ def port_is_open(ip, port=22):
 @app.route("/ports")
 def ports():
     request_ip = request.remote_addr
-    return json.dumps({'open_ports': {22: port_is_open(request_ip)}})
+    port = request.args.get('port', 22)
+
+    try:
+        port = int(port)
+    except ValueError:
+        abort(400)
+    
+    return json.dumps({'open_ports': {port: port_is_open(request_ip, port)}})
     
 
 if __name__ == "__main__":
