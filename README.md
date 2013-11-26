@@ -21,6 +21,18 @@ You will need Python 3.
     $ pip install -r requirements.pip
     $ DEBUG=y python server.py
 
+## Deploying
+
+On your production server, simply run:
+
+    $ gunciorn server:app
+
+If you're not inside the virtualenv, you can do:
+
+    $ ~/.envs/nmapservice/bin/gunicorn server:app
+
+Both of these commands need to run inside the source directory.
+
 ## License
 
 MIT license.
