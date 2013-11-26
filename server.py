@@ -1,7 +1,7 @@
 import os
 import json
 
-from flask import Flask, request, abort
+from flask import Flask, request, abort, render_template
 import nmap
 
 
@@ -11,12 +11,8 @@ app = Flask(__name__)
 # TODO: UDP too
 @app.route("/")
 def index():
-    return """This is a HTTP endpoint that informs clients if they have a TCP port
-open. By default it checks for port 22 (SSH) but you can specify other ports.
+    return render_template("index.html")
 
-For performance reasons, we don't allow querying of multiple ports.
-    
-"""
 
 def port_is_open(ip, port=22):
     nm = nmap.PortScanner()

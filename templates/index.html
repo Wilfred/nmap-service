@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>nmap-as-a-service</title>
+    </head>
+    <body>
+        <h1>nmap as a service</h1>
+
+        <p>This is an HTTP endpoint that informs the client if it has
+            a port open to the world.</p>
+
+        <p>Examples:
+        </p>
+
+        <ul>
+            <li>
+                Check port 22:
+                <a href="/ports">/ports</a>
+            </li>
+            <li>
+                Check an arbitrary port:
+                <a href="/ports?port=80">/ports?port=80</a>
+            </li>
+        </ul>
+        
+    </body>
+</html>
