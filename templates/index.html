@@ -15,11 +15,13 @@
         <ul>
             <li>
                 Check port 22:
-                <a href="/ports">/ports</a>
+                <a href="/ports{% if secret %}?secret={{ secret }}{% endif %}">
+                    /ports{% if secret %}?secret={{ secret }}{% endif %}</a>
             </li>
             <li>
                 Check an arbitrary port:
-                <a href="/ports?port=80">/ports?port=80</a>
+                <a href="/ports?port=80{% if secret %}&secret={{ secret }}{% endif %}">
+                    /ports?port=80{% if secret %}&secret={{ secret }}{% endif %}</a>
             </li>
         </ul>
         

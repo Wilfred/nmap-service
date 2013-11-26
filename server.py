@@ -18,7 +18,7 @@ def index():
     if SECRET and request.args.get('secret') != SECRET:
         return "Invalid secret given. You need to pass ?secret=&lt;secret&gt;", 403
         
-    return render_template("index.html")
+    return render_template("index.html", secret=SECRET)
 
 
 def port_is_open(ip, port=22):
