@@ -7,10 +7,17 @@ import nmap
 
 app = Flask(__name__)
 
+if os.path.exists('SECRET'):
+    SECRET = open('SECRET', 'r').read()
+else:
+    SECRET = None
 
 # TODO: UDP too
 @app.route("/")
 def index():
+    if SECRET and request.args.get('secret') != SECRET:
+        return "Invalid secret given. You need to pass ?secret=&lt;secret&gt;", 403
+        
     return render_template("index.html")
 
 
@@ -28,6 +35,9 @@ def port_is_open(ip, port=22):
 
 @app.route("/ports")
 def ports():
+    if SECRET and request.args.get('secret') != SECRET:
+        return "Invalid secret given. You need to pass ?secret=&lt;secret&gt;", 403
+        
     request_ip = request.remote_addr
     port = request.args.get('port', 22)
 
