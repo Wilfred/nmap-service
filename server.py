@@ -8,7 +8,7 @@ import nmap
 app = Flask(__name__)
 
 if os.path.exists('SECRET'):
-    SECRET = open('SECRET', 'r').read()
+    SECRET = open('SECRET', 'r').read().strip()
 else:
     SECRET = None
 
