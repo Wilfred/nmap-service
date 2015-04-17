@@ -25,7 +25,7 @@ You will need Python 3.
 
 On your production server, simply run:
 
-    $ gunciorn server:app
+    $ gunicorn server:app
 
 If you're not inside the virtualenv, you can do:
 
